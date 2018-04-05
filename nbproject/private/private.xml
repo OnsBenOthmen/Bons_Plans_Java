@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/omar/Documents/NetBeansProjects/Bons_Plans_Java/src/services/implementation/EtablissementService.java</file>
+            <file>file:/C:/Users/omar/Documents/NetBeansProjects/Bons_Plans_Java/src/GUI/AffichagePaneController.java</file>
+            <file>file:/C:/Users/omar/Documents/NetBeansProjects/Bons_Plans_Java/src/GUI/EtablissementController.java</file>
+            <file>file:/C:/Users/omar/Documents/NetBeansProjects/Bons_Plans_Java/src/entities/Etablissement.java</file>
+            <file>file:/C:/Users/omar/Documents/NetBeansProjects/Bons_Plans_Java/src/GUI/EtablissementVBoxController.java</file>
+            <file>file:/C:/Users/omar/Documents/NetBeansProjects/Bons_Plans_Java/src/GUI/Main.java</file>
+        </group>
     </open-files>
 </project-private>
