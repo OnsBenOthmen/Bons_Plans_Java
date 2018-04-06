@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author Ons Ben Othmen
  */
 public class DataSource {
-      private String url;
+    private String url;
     private String login;
     private String password;
     private static DataSource dataSource;

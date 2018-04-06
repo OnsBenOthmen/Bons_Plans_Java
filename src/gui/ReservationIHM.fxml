@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReservationIHMController">
+   <children>
+      <Label fx:id="nom" layoutX="47.0" layoutY="49.0" prefHeight="17.0" prefWidth="35.0" text="Nom" />
+      <Label id="prenom" fx:id="prenom" layoutX="47.0" layoutY="88.0" text="Prenom" />
+      <TextField id="nbrCh" fx:id="nbrC" layoutX="525.0" layoutY="25.0" prefHeight="25.0" prefWidth="52.0" />
+      <TextField id="prenom" fx:id="prenom" layoutX="97.0" layoutY="84.0" />
+      <Label id="DateReserv" fx:id="DateReservation" layoutX="47.0" layoutY="142.0" text="Date de reservation" />
+      <DatePicker id="DateD" fx:id="DateD" layoutX="141.0" layoutY="313.0" />
+      <Label id="Hour" fx:id="Heure" layoutX="51.0" layoutY="192.0" text="A quelle heure" />
+      <Label id="NombrePersonnes" fx:id="NombrePersonnes" layoutX="54.0" layoutY="236.0" text="Nombre de personnes" />
+      <Label id="DateArrivée" fx:id="DateArrivée" layoutX="51.0" layoutY="277.0" prefHeight="0.0" prefWidth="74.0" text="Date d'arrivée" />
+      <Label id="DateDépart" fx:id="DateDépart" layoutX="51.0" layoutY="317.0" text="Date de départ" />
+      <Label id="NombreChambres" fx:id="NbrChambres" layoutX="406.0" layoutY="29.0" text="Nombre de chambres " />
+      <Label id="NombreAdultes" fx:id="NombreAdultes" layoutX="413.0" layoutY="67.0" prefHeight="25.0" prefWidth="86.0" text="Nombre adultes" />
+      <Label id="NombreEnfants" fx:id="NombreEnfants" layoutX="406.0" layoutY="118.0" prefHeight="0.0" prefWidth="87.0" text="Nombre enfants" />
+      <Label id="NumdeTel" fx:id="NumTelephone" layoutX="397.0" layoutY="201.0" prefHeight="25.0" prefWidth="119.0" text="Numéro de telephone" />
+      <DatePicker id="heureR" fx:id="Heure" layoutX="164.0" layoutY="190.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField id="nbrAd" fx:id="nbrA" layoutX="525.0" layoutY="67.0" prefHeight="25.0" prefWidth="52.0" />
+      <TextField id="nbrEn" fx:id="NbrE" layoutX="516.0" layoutY="106.0" prefHeight="25.0" prefWidth="52.0" />
+      <TextField id="numTel" fx:id="Num_tel" layoutX="516.0" layoutY="201.0" prefHeight="25.0" prefWidth="52.0" />
+      <TextField id="nbrP" fx:id="NbrP" layoutX="185.0" layoutY="232.0" prefHeight="25.0" prefWidth="52.0" />
+      <DatePicker id="DateA" fx:id="DateA" layoutX="141.0" layoutY="273.0" prefHeight="25.0" prefWidth="174.0" />
+      <DatePicker id="dateR" fx:id="DateReserv" layoutX="174.0" layoutY="138.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField id="nom" fx:id="nom" layoutX="99.0" layoutY="45.0" />
+   </children>
+</AnchorPane>

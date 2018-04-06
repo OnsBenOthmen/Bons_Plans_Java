@@ -1,5 +1,6 @@
 
 package Bons_Plans_Java;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import services.implementation.EtablissementService;
 import services.implementation.EvenementService;
 import services.implementation.GoingEventService;
@@ -14,9 +15,12 @@ import entities.GoingEvent;
 import entities.InterestedEvent;
 import entities.LikedEtablissement;
 import entities.Offre;
+import entities.Reservation;
 import entities.VisitedEtablissement;
 import entities.User;
+import java.sql.Date;
 import java.util.List;
+import services.implementation.ReservationService;
 /**
  *
  * @author Ons Ben Othmen
@@ -27,7 +31,11 @@ public class Bons_Plans_Java{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        UserService userService=new UserService();
+        Reservation r = new Reservation();
+        ReservationService RS = new ReservationService();
+        RS.add(r);
+        
+        /*UserService userService=new UserService();
         User user=userService.getUserbyId(1);
         System.out.println(user.toString());
         EtablissementService service1=new EtablissementService();
@@ -97,7 +105,7 @@ public class Bons_Plans_Java{
         else {
             System.out.println("Ons is not interested in "+e1.getNom());
         }
-        
+        */
     }
     
 }

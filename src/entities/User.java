@@ -34,6 +34,8 @@ public class User implements Serializable{
     private String ville;
     private static int idofuserAlreadyloggedin;
     private static String myemail;
+    private List<Reservation> reservations;
+    private List<SharedExperience> sh_Experiences;
 
     public User() {
     }
@@ -71,6 +73,10 @@ public class User implements Serializable{
 
     public int getId() {
         return id;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 
     public void setId(int id) {
@@ -225,7 +231,16 @@ public class User implements Serializable{
     public static void setMyemail(String myemail) {
         User.myemail = myemail;
     }
-
+    public void setReservations(List<Reservation> reservations) {
+		this.reservations=reservations;
+	}
+    
+    public void setSh_Experiences(List<SharedExperience> sh_Experiences) {
+		this.sh_Experiences=sh_Experiences;
+	}
+    public List<SharedExperience> getSh_Experiences() {
+		return sh_Experiences;
+	}
 
     
   

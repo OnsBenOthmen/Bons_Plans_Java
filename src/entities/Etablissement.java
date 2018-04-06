@@ -5,12 +5,18 @@
  */
 package entities;
 
+import java.util.List;
+
 /**
  *
  * @author Ons Ben Othmen
  */
 public class Etablissement {
     private int id;
+    private List<Reservation> reservations;
+    private List<SharedExperience> sh_Experiences;
+
+    
 
     public Etablissement(int id) {
         this.id = id;
@@ -53,6 +59,17 @@ public class Etablissement {
     public String toString() {
         return "Etablissement{" + "id=" + id + '}';
     }
+    public void setReservations(List<Reservation> reservations) {
+		this.reservations=reservations;
+	}
+    public List<Reservation> getReservations() {
+		return reservations;
+	}
+    public void setSh_Experiences(List<SharedExperience> sh_Experiences) {
+		this.sh_Experiences=sh_Experiences;
+	}
+    public List<SharedExperience> getSh_Experiences() {
+		return sh_Experiences;
+	}
     
-    
-}
+  }
