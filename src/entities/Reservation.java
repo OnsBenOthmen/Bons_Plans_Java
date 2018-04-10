@@ -6,7 +6,7 @@
 package entities;
 
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -263,7 +263,7 @@ public class Reservation {
          *
          */
         String date = formater.format(this.date);
-        String Heure = formater1.format(this.Heure);
+        String Heure = formater.format(this.Heure);
         String depart = formater.format(this.depart);
         String arrivee = formater.format(this.arrivee);
             
@@ -274,8 +274,9 @@ public class Reservation {
                 + " VALUES (" + this.id + "," + this.id_etablissement + ",'" + this.id_user + "','" 
                 + date + "','" + Heure + "','" + this.nom + "','" + this.prenom + "','" 
                 + this.num_tel + "','" + this.nbr_personnes + "','" + arrivee + "','" 
-                + depart + "','" + this.nbr_chambres + "','" + this.nbr_adultes + "','"
+                + depart + "','" + this.nbr_chambres + "','" + this.nbr_adultes + "',"
                 + this.nbr_enfants + ")";
+                System.out.println(req);
         try {
             /**
              * execution de la requette**
@@ -304,11 +305,11 @@ public class Reservation {
          * Creation de la Requette**
          */
         String date = formater.format(this.date);
-        String Heure = formater1.format(this.Heure);
+        String Heure = formater.format(this.Heure);
         String depart = formater.format(this.depart);
         String arrivee = formater.format(this.arrivee);
         
-        String req = "UPDATE `reservation` SET `id_etablissement`=" + this.id_etablissement + ",`id_user`='" + this.id_user + "',`date`='" + date + "',`Heure`='" + Heure + "',`nom`='" + this.nom + "',`prenom`='" + this.prenom + "',`num_tel`='" + this.num_tel + "',`nbr_personnes`='" + this.nbr_personnes + "',`arrivee`='" + this.arrivee + "',`depart`='" + this.depart + "',`nbr_chambres`='" + this.nbr_chambres + "',`nbr_adultes`='" + this.nbr_adultes + "',`nbr_enfants`='" + this.nbr_enfants + "' WHERE `id`=" + this.id + ";";
+        String req = "UPDATE `reservation` SET `id_etablissement`=" + this.id_etablissement + ",`id_user`='" + this.id_user + "',`date`='" + date + "',`Heure`='" + Heure + "',`nom`='" + this.nom + "',`prenom`='" + this.prenom + "',`num_tel`='" + this.num_tel + "',`nbr_personnes`='" + this.nbr_personnes + "',`arrivee`='" + arrivee + "',`depart`='" + depart + "',`nbr_chambres`='" + this.nbr_chambres + "',`nbr_adultes`='" + this.nbr_adultes + "',`nbr_enfants`='" + this.nbr_enfants + "' WHERE `id`=" + this.id + ";";
         System.out.println(req);
         try {
             /*
@@ -361,7 +362,7 @@ public class Reservation {
     
     public ArrayList<Reservation> displayReservation() {
         ArrayList<Reservation> reservations = new ArrayList<>();
-        String req = "Select * From reservation where id_user = " ;/*+ IHM_loginController.user.getId();*/
+        String req = "Select * From reservation  " ;/*+ where id_user =IHM_loginController.user.getId();*/
         try {
             ps = conn.prepareStatement(req);
             rs = ps.executeQuery();
@@ -407,6 +408,43 @@ public class Reservation {
         }
         return 0;
 
+    }
+
+    public Reservation getReservation(int id) {
+            
+     Reservation Res=new Reservation();
+        String req = "Select * From reservation  where id=" + id + ";" ;/*+ where id_user =IHM_loginController.user.getId();*/
+        System.out.println(req);
+        try {
+            ps = conn.prepareStatement(req);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+               
+                Res.id = rs.getInt("id");
+                Res.id_etablissement = rs.getInt("id_etablissement");
+                Res.id_user = rs.getInt("id_user");
+                Res.date = rs.getDate("date");
+                Res.Heure = rs.getDate("Heure");
+                Res.nom = rs.getString("nom");
+                Res.prenom = rs.getString("prenom");
+                Res.num_tel = rs.getString("num_tel");
+                Res.nbr_personnes = rs.getInt("nbr_personnes");
+                Res.arrivee = rs.getDate("arrivee");
+                Res.depart = rs.getDate("depart");
+                Res.nbr_chambres = rs.getInt("nbr_chambres");
+                Res.nbr_enfants = rs.getInt("nbr_enfants");
+               
+            }
+            return Res;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            System.out.println("Erreuuur d'execution req");
+        }
+        return Res;
+    }
+
+    public void modifierTest(String nom, String prenom, int nbr_adultes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

@@ -6,19 +6,19 @@
 package services.implementation;
 
 import entities.Reservation;
+import java.util.Date;
 import java.util.ArrayList;
 
 
 public class ReservationService {
    
 
-     public int ajouterReservation(int id_etablissement, int id_user, java.sql.Date date, java.sql.Date Heure, String nom, String prenom, String num_tel, int nbr_personnes, java.sql.Date arrivee, java.sql.Date depart, int nbr_chambres, int nbr_adultes, int nbr_enfants) {
-        Reservation reserv = new Reservation(id_etablissement, id_user , date 
-                , Heure, nom, prenom , num_tel , nbr_personnes , arrivee , depart , nbr_chambres , nbr_adultes , nbr_enfants);
+     public int ajouterReservation(int id_etablissement, int id_user, Date date, Date Heure, String nom, String prenom, String num_tel, int nbr_personnes, Date arrivee, Date depart, int nbr_chambres, int nbr_adultes, int nbr_enfants) {
+        Reservation reserv = new Reservation(id_etablissement, id_user , date , Heure, nom, prenom , num_tel , nbr_personnes , arrivee , depart , nbr_chambres , nbr_adultes , nbr_enfants);
         return reserv.ajouterReservation();
         
     }
-      public int modifierReservation(int id, int id_etablissement, int id_user, java.sql.Date date, java.sql.Date Heure, String nom, String prenom, String num_tel, int nbr_personnes, java.sql.Date arrivee, java.sql.Date depart, int nbr_chambres, int nbr_adultes, int nbr_enfants) {
+      public int modifierReservation(int id, int id_etablissement, int id_user,Date date, Date Heure, String nom, String prenom, String num_tel, int nbr_personnes, Date arrivee, Date depart, int nbr_chambres, int nbr_adultes, int nbr_enfants) {
         Reservation reserv = new Reservation(id, id_etablissement, id_user , date 
                 , Heure, nom, prenom , num_tel , nbr_personnes , arrivee , depart , nbr_chambres , nbr_adultes , nbr_enfants);
         return reserv.modifierReservation();
@@ -33,7 +33,19 @@ public class ReservationService {
                 rs.getArrivee(), rs.getDepart(), rs.getNbr_chambres(), rs.getNbr_adultes(), rs.getNbr_enfants());
         return reserv.supprimerReservation();
     }
+
+    public Reservation getReservation(int x) {
+      Reservation reserv = new Reservation();
+        System.out.println(x+"ahahaahah");
+    return reserv.getReservation(x);
+    }
+
+    public int modifiertest(String nom, String prenom, int nbr_adultes) {
+            Reservation reserv = new Reservation();
+            return reserv.modifierReservation();
+    }
           
+     
        
     
 }

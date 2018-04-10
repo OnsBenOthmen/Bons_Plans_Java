@@ -20,7 +20,11 @@ import entities.VisitedEtablissement;
 import entities.User;
 import java.sql.Date;
 import java.util.List;
+
 import services.implementation.ReservationService;
+
+import services.implementation.TagService;
+
 /**
  *
  * @author Ons Ben Othmen
@@ -29,7 +33,7 @@ public class Bons_Plans_Java{
 
     /**
      * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
         Reservation r = new Reservation();
         ReservationService RS = new ReservationService();
@@ -106,6 +110,19 @@ public class Bons_Plans_Java{
             System.out.println("Ons is not interested in "+e1.getNom());
         }
         */
+
+    public static void main(String[] args) 
+    {
+        EtablissementService ES = new EtablissementService();
+        TagService TS = new TagService();
+        //ES.Ajout("Omar","Jarrayy","Omar","Jarray","Omar","Jarray",20397487,"Jarray",45);
+        ES.Affiche();
+        //ES.Supp(1);
+        //System.out.println("Effacé");
+        //ES.Affiche();
+        //TS.Modif(15,"P'tit Déj");
+        //TS.Affiche();
+
     }
     
 }
