@@ -13,12 +13,8 @@
           <TableColumn fx:id="nomCol" prefWidth="75.0" text="nom" />
           <TableColumn fx:id="prenCol" prefWidth="75.0" text="prenom" />
             <TableColumn fx:id="numtelCol" prefWidth="75.0" text="num_tel" />
-            <TableColumn fx:id="nbPersonCol" prefWidth="75.0" text="nbr_personnes" />
-            <TableColumn fx:id="arrivedaCol" prefWidth="75.0" text="arrivee" />
-            <TableColumn prefWidth="75.0" text="depart" />
-            <TableColumn prefWidth="75.0" text="nbr_chambres" />
-            <TableColumn prefWidth="75.0" text="nbr_adultes" />
-            <TableColumn prefWidth="75.0" text="nbr_enfants" />
+            <TableColumn fx:id="nbPersonCol" prefWidth="143.0" text="nbr_personnes" />
+            <TableColumn fx:id="DateReservCol" prefWidth="180.0" text="Date_reservation" />
         </columns>
       </TableView>
       <Button fx:id="modifierRes" layoutX="150.0" layoutY="484.0" mnemonicParsing="false" onAction="#modifierReserv" text="Modifier" />

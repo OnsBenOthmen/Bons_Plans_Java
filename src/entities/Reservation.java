@@ -25,16 +25,15 @@ public class Reservation {
     private int id_etablissement;
     private int id_user;
     private Date date;
-    private Date Heure;
     private String nom;
     private String prenom;
     private String num_tel;
     private int nbr_personnes;
-    private Date arrivee;
-    private Date depart;
-    private int nbr_chambres;
-    private int nbr_adultes;
-    private int nbr_enfants;
+    
+   
+    
+    
+
 
     private Etablissement etablissement;
     private User user;
@@ -46,38 +45,28 @@ public class Reservation {
     private PreparedStatement ps;
     private Statement stmt;
 
-    public Reservation(int id, int id_etablissement, int id_user, Date date, Date Heure, String nom, String prenom, String num_tel, int nbr_personnes, Date arrivee, Date depart, int nbr_chambres, int nbr_adultes, int nbr_enfants) {
+    public Reservation(int id, int id_etablissement, int id_user, Date date, String nom, String prenom, String num_tel, int nbr_personnes, Date arrivee, Date depart, int nbr_chambres, int nbr_adultes, int nbr_enfants) {
         this.id = id;
         this.id_etablissement = id_etablissement;
         this.id_user = id_user;
         this.date = date;
-        this.Heure = Heure;
         this.nom = nom;
         this.prenom = prenom;
         this.num_tel = num_tel;
         this.nbr_personnes = nbr_personnes;
-        this.arrivee = arrivee;
-        this.depart = depart;
-        this.nbr_chambres = nbr_chambres;
-        this.nbr_adultes = nbr_adultes;
-        this.nbr_enfants = nbr_enfants;
+        
         
     }
 
-    public Reservation(int id_etablissement, int id_user, Date date, Date Heure, String nom, String prenom, String num_tel, int nbr_personnes, Date arrivee, Date depart, int nbr_chambres, int nbr_adultes, int nbr_enfants) {
+    public Reservation(int id_etablissement, int id_user, Date date, String nom, String prenom, String num_tel, int nbr_personnes) {
         this.id_etablissement = id_etablissement;
         this.id_user = id_user;
         this.date = date;
-        this.Heure = Heure;
         this.nom = nom;
         this.prenom = prenom;
         this.num_tel = num_tel;
         this.nbr_personnes = nbr_personnes;
-        this.arrivee = arrivee;
-        this.depart = depart;
-        this.nbr_chambres = nbr_chambres;
-        this.nbr_adultes = nbr_adultes;
-        this.nbr_enfants = nbr_enfants;
+        
     }
     
     
@@ -119,14 +108,6 @@ public class Reservation {
         this.date = date;
     }
 
-    public Date getHeure() {
-        return Heure;
-    }
-
-    public void setHeure(Date Heure) {
-        this.Heure = Heure;
-    }
-
     public String getNom() {
         return nom;
     }
@@ -165,45 +146,7 @@ public class Reservation {
 		return etablissement;
 	}
 
-    public Date getArrivee() {
-        return arrivee;
-    }
-
-    public void setArrivee(Date arrivee) {
-        this.arrivee = arrivee;
-    }
-
-    public Date getDepart() {
-        return depart;
-    }
-
-    public void setDepart(Date depart) {
-        this.depart = depart;
-    }
-
-    public int getNbr_chambres() {
-        return nbr_chambres;
-    }
-
-    public void setNbr_chambres(int nbr_chambres) {
-        this.nbr_chambres = nbr_chambres;
-    }
-
-    public int getNbr_adultes() {
-        return nbr_adultes;
-    }
-
-    public void setNbr_adultes(int nbr_adultes) {
-        this.nbr_adultes = nbr_adultes;
-    }
-
-    public int getNbr_enfants() {
-        return nbr_enfants;
-    }
-
-    public void setNbr_enfants(int nbr_enfants) {
-        this.nbr_enfants = nbr_enfants;
-    }
+   
 
     public User getUser() {
         return user;
@@ -215,7 +158,7 @@ public class Reservation {
 
     @Override
     public String toString() {
-        return "Reservation{" + "id=" + id + ", id_etablissement=" + id_etablissement + ", id_user=" + id_user + ", date=" + date + ", Heure=" + Heure + ", nom=" + nom + ", prenom=" + prenom + ", num_tel=" + num_tel + ", nbr_personnes=" + nbr_personnes + ", arrivee=" + arrivee + ", depart=" + depart + ", nbr_chambres=" + nbr_chambres + ", nbr_adultes=" + nbr_adultes + ", nbr_enfants=" + nbr_enfants + '}';
+        return "Reservation{" + "id=" + id + ", id_etablissement=" + id_etablissement + ", id_user=" + id_user + ", date=" + date + ", nom=" + nom + ", prenom=" + prenom + ", num_tel=" + num_tel + ", nbr_personnes=" + nbr_personnes + '}';
     }
     
 
@@ -263,19 +206,16 @@ public class Reservation {
          *
          */
         String date = formater.format(this.date);
-        String Heure = formater.format(this.Heure);
-        String depart = formater.format(this.depart);
-        String arrivee = formater.format(this.arrivee);
+       
+        
             
         String req = "INSERT INTO `reservation`(`id`, `id_etablissement`, `id_user`,"
                 + " `date`, `Heure`,`nom`, "
                 + "`prenom`, `num_tel`,`nbr_personnes`,`arrivee`,`depart`,`nbr_chambres`"
                 + ",`nbr_adultes`,`nbr_enfants`)"
                 + " VALUES (" + this.id + "," + this.id_etablissement + ",'" + this.id_user + "','" 
-                + date + "','" + Heure + "','" + this.nom + "','" + this.prenom + "','" 
-                + this.num_tel + "','" + this.nbr_personnes + "','" + arrivee + "','" 
-                + depart + "','" + this.nbr_chambres + "','" + this.nbr_adultes + "',"
-                + this.nbr_enfants + ")";
+                + date + "','" + this.nom + "','" + this.prenom + "','" 
+                + this.num_tel + "'," + this.nbr_personnes + ")";
                 System.out.println(req);
         try {
             /**
@@ -305,11 +245,10 @@ public class Reservation {
          * Creation de la Requette**
          */
         String date = formater.format(this.date);
-        String Heure = formater.format(this.Heure);
-        String depart = formater.format(this.depart);
-        String arrivee = formater.format(this.arrivee);
         
-        String req = "UPDATE `reservation` SET `id_etablissement`=" + this.id_etablissement + ",`id_user`='" + this.id_user + "',`date`='" + date + "',`Heure`='" + Heure + "',`nom`='" + this.nom + "',`prenom`='" + this.prenom + "',`num_tel`='" + this.num_tel + "',`nbr_personnes`='" + this.nbr_personnes + "',`arrivee`='" + arrivee + "',`depart`='" + depart + "',`nbr_chambres`='" + this.nbr_chambres + "',`nbr_adultes`='" + this.nbr_adultes + "',`nbr_enfants`='" + this.nbr_enfants + "' WHERE `id`=" + this.id + ";";
+        
+        
+        String req = "UPDATE `reservation` SET `id_etablissement`=" + this.id_etablissement + ",`id_user`='" + this.id_user + "',`date`='" + date + "',`nom`='" + this.nom + "',`prenom`='" + this.prenom + "',`num_tel`='" + this.num_tel + "',`nbr_personnes`='" + this.nbr_personnes + "' WHERE `id`=" + this.id + ";";
         System.out.println(req);
         try {
             /*
@@ -341,15 +280,11 @@ public class Reservation {
                 Res.id_etablissement = rs.getInt(2);
                 Res.id_user = rs.getInt(3);
                 Res.date = rs.getDate(4);
-                Res.Heure = rs.getDate(5);
-                Res.nom = rs.getString(6);
-                Res.prenom = rs.getString(7);
-                Res.num_tel = rs.getString(8);
-                Res.nbr_personnes = rs.getInt(9);
-                Res.arrivee = rs.getDate(10);
-                Res.depart = rs.getDate(11);
-                Res.nbr_chambres = rs.getInt(12);
-                Res.nbr_enfants = rs.getInt(13);
+                Res.nom = rs.getString(5);
+                Res.prenom = rs.getString(6);
+                Res.num_tel = rs.getString(7);
+                Res.nbr_personnes = rs.getInt(8);
+                
                 
             }
             return 1;
@@ -372,15 +307,11 @@ public class Reservation {
                 Res.id_etablissement = rs.getInt("id_etablissement");
                 Res.id_user = rs.getInt("id_user");
                 Res.date = rs.getDate("date");
-                Res.Heure = rs.getDate("Heure");
                 Res.nom = rs.getString("nom");
                 Res.prenom = rs.getString("prenom");
                 Res.num_tel = rs.getString("num_tel");
                 Res.nbr_personnes = rs.getInt("nbr_personnes");
-                Res.arrivee = rs.getDate("arrivee");
-                Res.depart = rs.getDate("depart");
-                Res.nbr_chambres = rs.getInt("nbr_chambres");
-                Res.nbr_enfants = rs.getInt("nbr_enfants");
+                
                 reservations.add(Res);
             }
             return reservations;
@@ -424,15 +355,11 @@ public class Reservation {
                 Res.id_etablissement = rs.getInt("id_etablissement");
                 Res.id_user = rs.getInt("id_user");
                 Res.date = rs.getDate("date");
-                Res.Heure = rs.getDate("Heure");
                 Res.nom = rs.getString("nom");
                 Res.prenom = rs.getString("prenom");
                 Res.num_tel = rs.getString("num_tel");
                 Res.nbr_personnes = rs.getInt("nbr_personnes");
-                Res.arrivee = rs.getDate("arrivee");
-                Res.depart = rs.getDate("depart");
-                Res.nbr_chambres = rs.getInt("nbr_chambres");
-                Res.nbr_enfants = rs.getInt("nbr_enfants");
+               
                
             }
             return Res;

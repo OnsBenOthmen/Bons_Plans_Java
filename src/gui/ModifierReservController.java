@@ -33,19 +33,7 @@ public class ModifierReservController implements Initializable {
     @FXML
     private Label Prenom;
     @FXML
-    private TextField nbrC;
-    @FXML
     private TextField prenom;
-    @FXML
-    private Label NbrChambres;
-    @FXML
-    private Label NombreAdultes;
-    @FXML
-    private Label NombreEnfants;
-    @FXML
-    private TextField nbrA;
-    @FXML
-    private TextField NbrE;
     @FXML
     private TextField nom;
     ReservationService rs=new ReservationService();
@@ -53,10 +41,6 @@ public class ModifierReservController implements Initializable {
     private Button modifier;
     @FXML
     private Label Date_de_reservation;
-    @FXML
-    private DatePicker DateD;
-    @FXML
-    private Label heure;
     @FXML
     private Label NombrePersonnes;
     @FXML
@@ -66,13 +50,9 @@ public class ModifierReservController implements Initializable {
     @FXML
     private Label NumTelephone;
     @FXML
-    private DatePicker Heure;
-    @FXML
     private TextField Num_tel;
     @FXML
     private TextField NbrP;
-    @FXML
-    private DatePicker DateA;
     @FXML
     private DatePicker DateReserv;
      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -93,12 +73,14 @@ public class ModifierReservController implements Initializable {
          System.out.println(m);
          nom.setText(m.getNom());
          prenom.setText(m.getPrenom());
-         nbrA.setText(""+m.getNbr_adultes());
-         LocalDate ld = LocalDate.parse(m.getArrivee().toString());
-         LocalDate ld1 = LocalDate.parse(m.getDepart().toString());
-                DateD.setValue(ld);
-                DateA.setValue(ld1);
-        NbrE.setText(""+m.getNbr_enfants());
+         Num_tel.setText(m.getNum_tel());
+         NbrP.setText(""+m.getNbr_personnes());
+         
+         LocalDate ld = LocalDate.parse(m.getDate().toString());
+         DateReserv .setValue(ld);     
+         
+         
+        
   
          
     }    
@@ -108,16 +90,14 @@ public class ModifierReservController implements Initializable {
         
         try {
             datedeb = format.parse(DateReserv.getValue().toString());
-            heur = format.parse(Heure.getValue().toString());
-            datearr = format.parse(DateA.getValue().toString());
-            datde = format.parse(DateD.getValue().toString());
+            
             
            
         } catch (ParseException ex) {
             System.out.println(ex.toString());
         }
 //         rs.modifierReservation(nom.getText(),prenom.getText(),Integer.parseInt(nbrA.getText()));
-         rs.modifierReservation(Reservation_AfficheController.idZbotrech,1,1, datedeb, heur, nom.getText(), prenom.getText(), NumTelephone.getText(), Integer.parseInt(NbrP.getText()),datearr,datde,  Integer.parseInt(nbrC.getText()), Integer.parseInt(nbrA.getText()), Integer.parseInt(NbrE.getText()));
+         rs.modifierReservation(Reservation_AfficheController.idZbotrech,1,1, datedeb, nom.getText(), prenom.getText(), NumTelephone.getText(), Integer.parseInt(NbrP.getText()));
     }
     
 }

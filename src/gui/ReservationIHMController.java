@@ -33,51 +33,33 @@ public class ReservationIHMController implements Initializable {
     @FXML
     private Label Prenom;
     @FXML
-    private TextField nbrC;
-    @FXML
     private TextField prenom;
     @FXML
     private Label Date_de_reservation;
-    @FXML
-    private DatePicker DateD;
-    @FXML
-    private Label heure;
+   
+    
     @FXML
     private Label NombrePersonnes;
-    @FXML
-    private Label DateArrivée;
-    @FXML
-    private Label DateDépart;
-    @FXML
-    private Label NbrChambres;
-    @FXML
-    private Label NombreAdultes;
-    @FXML
-    private Label NombreEnfants;
+
     @FXML
     private Label NumTelephone;
-    @FXML
-    private DatePicker Heure;
-    @FXML
-    private TextField nbrA;
-    @FXML
-    private TextField NbrE;
+
+   
+    
     @FXML
     private TextField Num_tel;
-    @FXML
-    private TextField NbrP;
-    @FXML
-    private DatePicker DateA;
+    
+    
     @FXML
     private DatePicker DateReserv;
     @FXML
     private TextField nom;
     @FXML
     private Button ajouter;
-            Date datedeb;
-            Date heur;
-            Date datde;
-            Date datearr;
+            Date date;
+    @FXML
+    private TextField NbrP;
+            
     /**
      * Initializes the controller class.
      */
@@ -96,15 +78,13 @@ public class ReservationIHMController implements Initializable {
             
         try {
            
-            datedeb = format.parse(DateReserv.getValue().toString());
-            heur = format.parse(Heure.getValue().toString());
-            datearr = format.parse(DateA.getValue().toString());
-            datde = format.parse(DateD.getValue().toString());
+            date = format.parse(DateReserv.getValue().toString());
+            
         } catch (ParseException ex) {
 
             System.out.println(ex.toString());}
         ReservationService rs=new ReservationService();
-        rs.ajouterReservation(1, 1, datedeb, heur, nom.getText(), prenom.getText(), NumTelephone.getText(),  Integer.parseInt(NbrP.getText()), datearr, datearr, Integer.parseInt(nbrC.getText()), Integer.parseInt(nbrA.getText()), Integer.parseInt(NbrE.getText()));
+        rs.ajouterReservation(1, 1, date, nom.getText(), prenom.getText(), NumTelephone.getText(),  Integer.parseInt(NbrP.getText()));
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);

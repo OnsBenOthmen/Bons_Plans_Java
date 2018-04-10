@@ -21,6 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -48,7 +49,8 @@ public class Reservation_AfficheController implements Initializable {
     @FXML
     private TableColumn<Reservation, Integer> nbPersonCol;
     @FXML
-    private TableColumn<Reservation, Date> arrivedaCol;
+    private TableColumn<Reservation, Integer> DateReservCol;
+    
     public static int idZbotrech;
     
     ReservationService rs=new ReservationService();
@@ -61,6 +63,7 @@ public class Reservation_AfficheController implements Initializable {
     @FXML
     private TextField find;
     
+    
     /**
      * Initializes the controller class.
      */
@@ -72,7 +75,8 @@ public class Reservation_AfficheController implements Initializable {
          prenCol.setCellValueFactory(new PropertyValueFactory("prenom"));
          numtelCol.setCellValueFactory(new PropertyValueFactory("num_tel"));
          nbPersonCol.setCellValueFactory(new PropertyValueFactory("nbr_personnes"));
-         arrivedaCol.setCellValueFactory(new PropertyValueFactory("arrivee"));
+         DateReservCol.setCellValueFactory(new PropertyValueFactory("date"));
+
          for (Reservation li : listRes) {
              System.out.println(li);
         }
@@ -103,7 +107,7 @@ public class Reservation_AfficheController implements Initializable {
         t -> t.getNom().startsWith(x)
         || t.getPrenom().startsWith(x)
         
-                        || t.getNum_tel().startsWith(x)
+                        || t.getNum_tel().startsWith(x) 
                         
                        
 
@@ -117,8 +121,20 @@ public class Reservation_AfficheController implements Initializable {
 
     @FXML
     private void SuprrimerResera(ActionEvent event) {
+        rs.supprimmerReservation(listReservation.getItems().get(listReservation.getSelectionModel().getSelectedIndex()));
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("Voulez-vous supprimer ?");
+        alert.showAndWait();
+        ref();
     }
+    
+public void ref() {
+        listReservation.getItems().clear();
+        listReservation.getItems().addAll(rs.AfficherReservation());
 
+    }
     @FXML
     private void findKey(KeyEvent event) {
          String mot = find.getText();

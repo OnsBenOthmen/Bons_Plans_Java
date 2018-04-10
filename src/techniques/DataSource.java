@@ -19,7 +19,7 @@ public class DataSource
 
     private DataSource() 
     {
-        url = "jdbc:mysql://localhost:3306/bonsplansjava";
+        url = "jdbc:mysql://localhost:3306/tunisiebonsplans";
         login = "root";
         password = "";
         try 

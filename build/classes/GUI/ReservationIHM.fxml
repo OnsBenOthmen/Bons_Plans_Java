@@ -10,27 +10,15 @@
    <children>
       <Label fx:id="Nom" layoutX="64.0" layoutY="42.0" prefHeight="17.0" prefWidth="35.0" text="Nom" />
       <Label id="prenom" fx:id="Prenom" layoutX="64.0" layoutY="81.0" text="Prenom" />
-      <TextField id="nbrCh" fx:id="nbrC" layoutX="525.0" layoutY="25.0" prefHeight="25.0" prefWidth="52.0" />
       <TextField id="prenom" fx:id="prenom" layoutX="114.0" layoutY="77.0" />
-      <Label id="DateReserv" fx:id="Date_de_reservation" layoutX="47.0" layoutY="142.0" text="Date de reservation" />
-      <DatePicker id="DateD" fx:id="DateD" layoutX="141.0" layoutY="313.0" />
-      <Label id="Hour" fx:id="heure" layoutX="51.0" layoutY="192.0" text="A quelle heure" />
-      <Label id="NombrePersonnes" fx:id="NombrePersonnes" layoutX="54.0" layoutY="236.0" text="Nombre de personnes" />
-      <Label id="DateArrivée" fx:id="DateArrivée" layoutX="51.0" layoutY="277.0" prefHeight="0.0" prefWidth="74.0" text="Date d'arrivée" />
-      <Label id="DateDépart" fx:id="DateDépart" layoutX="51.0" layoutY="317.0" text="Date de départ" />
-      <Label id="NombreChambres" fx:id="NbrChambres" layoutX="406.0" layoutY="29.0" text="Nombre de chambres " />
-      <Label id="NombreAdultes" fx:id="NombreAdultes" layoutX="413.0" layoutY="67.0" prefHeight="25.0" prefWidth="86.0" text="Nombre adultes" />
-      <Label id="NombreEnfants" fx:id="NombreEnfants" layoutX="406.0" layoutY="118.0" prefHeight="0.0" prefWidth="87.0" text="Nombre enfants" />
-      <Label id="NumdeTel" fx:id="NumTelephone" layoutX="397.0" layoutY="201.0" prefHeight="25.0" prefWidth="119.0" text="Numéro de telephone" />
-      <DatePicker id="heureR" fx:id="Heure" layoutX="164.0" layoutY="190.0" prefHeight="25.0" prefWidth="174.0" />
-      <TextField id="nbrAd" fx:id="nbrA" layoutX="525.0" layoutY="67.0" prefHeight="25.0" prefWidth="52.0" />
-      <TextField id="nbrEn" fx:id="NbrE" layoutX="516.0" layoutY="106.0" prefHeight="25.0" prefWidth="52.0" />
-      <TextField id="numTel" fx:id="Num_tel" layoutX="516.0" layoutY="201.0" prefHeight="25.0" prefWidth="52.0" />
-      <TextField id="nbrP" fx:id="NbrP" layoutX="185.0" layoutY="232.0" prefHeight="25.0" prefWidth="52.0" />
-      <DatePicker id="DateA" fx:id="DateA" layoutX="141.0" layoutY="273.0" prefHeight="25.0" prefWidth="174.0" />
-      <DatePicker id="dateR" fx:id="DateReserv" layoutX="174.0" layoutY="138.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label id="DateReserv" fx:id="Date_de_reservation" layoutX="12.0" layoutY="142.0" text="Date de reservation" />
+      <Label id="NombrePersonnes" fx:id="NombrePersonnes" layoutX="54.0" layoutY="258.0" text="Nombre de personnes" />
+      <TextField id="nbrP" fx:id="NbrP" layoutX="211.0" layoutY="254.0" prefHeight="25.0" prefWidth="52.0" />
+      <DatePicker id="dateR" fx:id="DateReserv" layoutX="124.0" layoutY="138.0" prefHeight="25.0" prefWidth="174.0" />
       <TextField id="nom" fx:id="nom" layoutX="116.0" layoutY="38.0" />
-      <Button fx:id="ajouter" layoutX="380.0" layoutY="282.0" mnemonicParsing="false" onAction="#ajouterReserv" text="Ajouter" />
-      <Button layoutX="499.0" layoutY="282.0" mnemonicParsing="false" text="Annuler" />
+      <Button fx:id="ajouter" layoutX="124.0" layoutY="408.0" mnemonicParsing="false" onAction="#ajouterReserv" text="Ajouter" />
+      <Button layoutX="290.0" layoutY="408.0" mnemonicParsing="false" text="Annuler" />
+      <Label fx:id="NumTelephone" layoutX="85.0" layoutY="198.0" text="Votre numéro de téléphone" />
+      <TextField fx:id="Num_tel" layoutX="274.0" layoutY="194.0" />
    </children>
 </AnchorPane>
